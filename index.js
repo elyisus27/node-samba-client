@@ -32,6 +32,7 @@ class SambaClient {
     // https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#CLIENTMAXPROTOCOL
     this.maxProtocol = options.maxProtocol;
     this.maskCmd = Boolean(options.maskCmd);
+    this.wrapCommands = options.wrapCommands || false
   }
 
   async getFile(path, destination, workingDir) {
