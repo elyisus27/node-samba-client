@@ -137,6 +137,12 @@ class SambaClient {
     if (Array.isArray(smbCommandArgs)) {
       cleanedSmbArgs = getCleanedSmbClientArgs(smbCommandArgs);
     }
+
+    let command = `${smbCommand} ${cleanedSmbArgs}`;
+    if (this.wrapCommands) {
+      command = `'${command}'`;
+    }
+    
     args.push("-c", `${smbCommand} ${cleanedSmbArgs}`, this.address);
 
     if (this.password) {
