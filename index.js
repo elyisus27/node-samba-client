@@ -143,7 +143,7 @@ class SambaClient {
       command = `'${command}'`;
     }
     
-    args.push("-c", `${smbCommand} ${cleanedSmbArgs}`, this.address);
+    args.push("-c", command, this.address);
 
     if (this.password) {
       args.push("--password", this.password);
